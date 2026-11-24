@@ -15,10 +15,11 @@ pipeline {
 
         stage('2. Application Build & Test') {
     steps {
-        bat 'echo %PATH%'
-        bat 'where python || exit 0'
+        echo "Verifying Python syntax..."
+        bat 'python -m py_compile app.py'
     }
 }
+
 
 
 
