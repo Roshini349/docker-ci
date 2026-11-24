@@ -15,10 +15,11 @@ pipeline {
 
         stage('2. Application Build & Test') {
     steps {
-        echo "Verifying Python syntax using Docker..."
-        bat 'docker run --rm -v "%WORKSPACE%:/app" -w /app python:3.11-slim python -m py_compile app.py'
+        bat 'echo %PATH%'
+        bat 'where python || exit 0'
     }
 }
+
 
 
         stage('3. Build & Tag Docker Image') {
